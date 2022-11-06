@@ -17,8 +17,9 @@ const initializeDbAndServer = async () => {
       filename: databasePath,
       driver: sqlite3.Database,
     });
-    app.listen(process.env.PORT || 3004, () =>
-      console.log("Server Running at http://localhost:3000/")
+
+    app.listen(process.env.PORT || 3003, () =>
+      console.log("Server Running at http://localhost:3003/")
     );
   } catch (error) {
     console.log(`DB Error: ${error.message}`);
@@ -39,6 +40,5 @@ app.get("/movies/", async (request, response) => {
     moviesArray.map((eachMovie) => ({ movieName: eachMovie.movie_name }))
   );
 });
-
 
 module.exports = app;
